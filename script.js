@@ -1,4 +1,4 @@
-// generero in modo casuale 5 numeri compresi da 1 a 100 
+// generero in modo casuale 5 numeri compresi da  a 100 
 // li salvo in un array  
 // e stampo a schermo il risultato 
 // resta a schermo per 30 secondi 
@@ -13,6 +13,7 @@
 // fine del gioco e controllo dei risultati 
 
 let numeriGenerati;
+let numeriInseriti
 // funzione che genera i numeri 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -43,25 +44,37 @@ setTimeout(function(){
    
 },3000);
 
-// prende i numeri inseriti dall'utente e ci genera un array 
-function prendiInput(){
-    const input = document.getElementById("input-numeri").value; 
+// prende i numeri inseriti dall'utente e ci genera un array
+
+function prendiInput() {
+    // Assicuriamoci che numeriGenerati sia definito prima di chiamare la funzione
+    numeriGenerati = numeriGenerati || generaEstampaInArray();
+
+    const input = document.getElementById("input-numeri").value;
     const numeriInseriti = input.split(',').map(numero => parseInt(numero.trim(), 10));
+    console.log("Numeri inseriti dall'utente:", numeriInseriti);
+
+    if (numeriInseriti.length === 0) {
+        // Gestisci il caso in cui l'utente non inserisce alcun numero
+        // console.log("Nessun numero inserito. Riprova.");
+        return;
+    }
 
     const risultato = controllo(numeriGenerati, numeriInseriti);
-    alert(risultato);
+    console.log(risultato);
+    alert(risultato)
 }
 
-function controllo(numeriGenerati, numeriInseriti){
-    if (numeriGenerati.length !== numeriInseriti.length){
+function controllo(numeriGenerati, numeriInseriti) {
+    if (numeriGenerati.length !== numeriInseriti.length) {
         return "Numeri inseriti non corretti. Assicurati di inserire esattamente 5 numeri.";
     }
+
     for (let i = 0; i < numeriGenerati.length; i++) {
         if (numeriGenerati[i] !== numeriInseriti[i]) {
-          return "Numeri inseriti non corretti. Riprova!";
+            return "Numeri inseriti non corretti. Riprova!";
         }
-      }
-    
-      return "Complimenti! Hai indovinato tutti i numeri.";
-}
+    }
 
+    return "Complimenti! Hai indovinato tutti i numeri.";
+}
