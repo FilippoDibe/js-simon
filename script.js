@@ -43,3 +43,12 @@ setTimeout(function(){
     document.getElementById("numeri-casuali").textContent= "";
 
 },3000);
+
+// prende i numeri inseriti dall'utente e ci genera un array 
+function prendiInput(){
+    const input = document.getElementById("input-numeri").value; 
+    const numeriInseriti = input.split(',').map(numero => parseInt(numero.trim(), 10));
+
+    const risultato = controllo(numeriGenerati, numeriInseriti);
+    alert(risultato);
+}
