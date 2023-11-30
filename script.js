@@ -52,3 +52,16 @@ function prendiInput(){
     const risultato = controllo(numeriGenerati, numeriInseriti);
     alert(risultato);
 }
+
+function controllo(numeriGenerati, numeriInseriti){
+    if (numeriGenerati.length !== numeriInseriti.length){
+        return "Numeri inseriti non corretti. Assicurati di inserire esattamente 5 numeri.";
+    }
+    for (let i = 0; i < numeriGenerati.length; i++) {
+        if (numeriGenerati[i] !== numeriInseriti[i]) {
+          return "Numeri inseriti non corretti. Riprova!";
+        }
+      }
+    
+      return "Complimenti! Hai indovinato tutti i numeri.";
+}
