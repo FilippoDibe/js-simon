@@ -12,8 +12,7 @@
 
 // fine del gioco e controllo dei risultati 
 
-
-
+let numeriGenerati;
 // funzione che genera i numeri 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -35,13 +34,13 @@ function generaEstampaInArray(){
 
 }
 
-const numeriGenerati = generaEstampaInArray();
+numeriGenerati = generaEstampaInArray();
 document.getElementById("numeri-casuali").textContent="ecco i numeri estratti: " + numeriGenerati
 console.log("Numeri casuali generati:", numeriGenerati);
 
 setTimeout(function(){
-    document.getElementById("numeri-casuali").textContent= "";
-
+    document.getElementById("numeri-casuali").textContent= "tempo scaduto";
+   
 },3000);
 
 // prende i numeri inseriti dall'utente e ci genera un array 
