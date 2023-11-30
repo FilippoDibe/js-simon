@@ -64,3 +64,4 @@ function controllo(numeriGenerati, numeriInseriti){
     
       return "Complimenti! Hai indovinato tutti i numeri.";
 }
+
